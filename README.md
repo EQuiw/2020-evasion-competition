@@ -64,4 +64,4 @@ Our defense can serve as an additional baseline in the future to strengthen the
 research on secure learning.
 
 ## Getting Started
-The code and models will be publicly available in November.
+The code and models will be publicly available until January ~~in November~~.

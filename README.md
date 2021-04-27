@@ -21,7 +21,7 @@ as guard in Hogwarts.</sub>
 If you are using our defense, please cite our whitepaper.
 You may use the following BibTex entry:
 ```
-@misc{quiring2020competition,
+@misc{QuiPirReiArpRie20,
         title={Against All Odds: Winning the Defense Challenge in an Evasion Competition with Diversification},
         author={Erwin Quiring and Lukas Pirch and Michael Reimsbach and Daniel Arp and Konrad Rieck},
         year={2020},
@@ -64,4 +64,73 @@ Our defense can serve as an additional baseline in the future to strengthen the
 research on secure learning.
 
 ## Getting Started
-The code and models will be publicly available until February/March 2021 ~~in January~~.
+### Installation
+First, make sure you have installed Docker.
+Then, get the repository:
+```
+git clone https://github.com/EQuiw/2020-evasion-competition.git
+cd 2020-evasion-competition
+```
+
+### Deployment
+Build docker image (ensure you are still in the repo directory):
+```
+docker build -t adv-challenge .
+```
+Start container (interactive mode),
+(CPU and memory settings as given in the competition):
+```
+docker run -it -p 8080:8080 --memory=1.5g --cpus=1 adv-challenge /bin/bash
+python __main__.py  # start flask app
+```
+
+### Testing
+Open a second shell, as the container has been started interactively.
+
+Create a python environment (to keep your system clean). The following commands
+assume that you have installed Anaconda.
+```
+conda create --name scaling-attack python=3.7
+conda activate scaling-attack
+```
+Next, go to the repository (replace the path) and activate conda environment:
+```
+cd <PATH-TO-REPO>/2020-evasion-challenge
+```
+Install python packages:
+```
+pip install -r requirements.txt
+```
+#### Test 1
+- Our first simple test case uses the putty executable as a test object. Please download ```putty.exe```
+from the [official website](https://www.putty.org/). Alternatively, you can use:
+```
+wget -O ./test/test_objects/putty.exe https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
+```
+The download link may change over time! Then simply replace it.
+After that, start the tests.
+```
+python test/test_post_request.py
+```
+
+#### Test 2
+- To test the defense against malicious files, please download ```MLSEC_2019_samples_and_variants.zip```.
+You can find all instructions on
+the [competition website](https://github.com/Azure/2020-machine-learning-security-evasion-competition/tree/master/defender).
+Assuming you are working on a secure system, and you have unpacked the zip file,
+you can run ```test_dataset.py```that runs over all PE files. Please
+adjust the path to your directory in the following command:
+```
+python test/test_dataset.py --datasetpath /<TODO-PATH-TO>/MLSEC_2019_samples_and_variants/ --verbose
+```
+If you are only interested in the final outcome, remove the ```--verbose``` command.
+The final classification accuracy should be 95.11784511784511%.
+
+### Additional Dependencies
+
+- [GNU Parallel](https://www.gnu.org/software/parallel/): Used in our shell scripts to parallelize the feature extraction.
+Make sure to install it in the host environment if you would like to make use of it.
+
+### More information
+- You find the [Competition README here](./README_Competition.md)
+- You find more details about the structure of the project in this [README](./README_Structure.md)

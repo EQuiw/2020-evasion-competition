@@ -1,0 +1,8 @@
+
+# Entropy window
+# The maximum value depends on the size of the window. If you change
+# the size, experiment with packed code to get a new threshold.
+ent_window: 1024
+ent_min: 0.0
+ent_max: 7.5
+

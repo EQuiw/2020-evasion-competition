@@ -1,0 +1,17 @@
+
+# Cache directory for efficiency
+cache: /tmp/expert-cache-ensemblexx
+
+# Database file of PEiD rules
+peid_db: ./learning/expert/peid.yar
+
+# Database file of Yara Rules
+yaru_db: ./learning/expert/yaru/index.yar
+
+# Rabin2 program from radare2
+rabin2: /usr/bin/rabin2
+
+# Peframe program
+peframe: /usr/local/bin/peframe
+
+

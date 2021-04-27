@@ -1,0 +1,8 @@
+joblib==0.15.1
+lief==0.10.1
+numpy==1.18.5
+PyYAML==5.3.1
+scikit-learn==0.23.1
+scipy==1.4.1
+threadpoolctl==2.1.0
+yara-python==4.0.1

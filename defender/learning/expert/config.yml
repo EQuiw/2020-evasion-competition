@@ -1,0 +1,11 @@
+
+# Cache directory for efficiency
+cache: /tmp/expert-cache-ensemble
+
+# Database file of PEiD rules
+peid_db: ./learning/expert/peid.yar
+
+# Database file of Yara Rules
+yaru_db: ./learning/expert/yaru/index.yar
+
+

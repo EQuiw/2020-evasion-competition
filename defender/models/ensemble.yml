@@ -1,0 +1,5 @@
+# config for defender.learning.ensemble.Models.Ensemble
+embermodelpath: ./learning/emberboost/models
+expertmodelpath: ./learning/expert/models
+ngrammodelpath: ./learning/ngrams/models
+featureversion: 2
